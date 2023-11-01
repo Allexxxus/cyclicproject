@@ -1,4 +1,4 @@
-const socket = new WebSocket(`ws://${window.location.host}/ws`);
+const socket = new WebSocket(`wss://${window.location.host}/wss`);
 
 console.log('Сайт работает');
 
@@ -18,7 +18,6 @@ socket.addEventListener('message', (event) => {
 
 document.addEventListener('DOMContentLoaded', function() {
   clickme.addEventListener('click', function() {
-    alert('clicked')
     socket.send('Clicked!');
   });
 });
