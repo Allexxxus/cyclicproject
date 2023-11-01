@@ -13,7 +13,7 @@ socket.addEventListener('open', (event) => {
 socket.addEventListener('message', (event) => {
   console.log('Сообщение с бекенда:', event.data);
   clickCount = parseInt(event.data); 
-  dynamicCounter.textContent = `clicked ${clickCount} times`;
+  dynamicCounter.textContent = `${clickCount}`;
 });
 
 document.addEventListener('DOMContentLoaded', function() {
