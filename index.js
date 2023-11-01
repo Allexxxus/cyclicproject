@@ -8,14 +8,16 @@ const server = app.listen(3000, () => {
 });
 
 const wss = new WebSocket.Server({ noServer: true });
+let clickCount = 0;
 
 wss.on('connection', (ws) => {
-  const interval = setInterval(() => {
-    ws.send('Сообщение с бекенда');
-  }, 2000);
+  ws.send(clickCount.toString()); 
 
-  ws.on('close', () => {
-    clearInterval(interval);
+  ws.on('message', (message) => {
+    clickCount++;
+    wss.clients.forEach((client) => {
+      client.send(clickCount.toString()); 
+    });
   });
 });
 
