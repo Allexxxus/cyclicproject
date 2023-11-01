@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://localhost:3000/ws');
+const socket = new WebSocket(`ws://${window.location.host}/ws`);
 
 console.log('Сайт работает');
 
