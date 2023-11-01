@@ -18,6 +18,7 @@ socket.addEventListener('message', (event) => {
 
 document.addEventListener('DOMContentLoaded', function() {
   clickme.addEventListener('click', function() {
+    alert('clicked')
     socket.send('Clicked!');
   });
 });
